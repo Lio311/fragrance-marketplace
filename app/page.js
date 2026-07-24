@@ -36,9 +36,9 @@ export default async function HomePage() {
   const popularFragrances = await getPopularFragrances();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#050505] text-white">
       {/* Immersive Dark Hero Section */}
-      <section className="relative w-full h-[600px] sm:h-[700px] flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[600px] sm:h-[800px] flex flex-col items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -49,21 +49,24 @@ export default async function HomePage() {
             priority
           />
           {/* Dark Overlay for text readability */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-[#050505]" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mt-16 animate-fade-in-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.2] tracking-tight mb-6">
-            מצא את הבושם המושלם<br />במחיר הטוב ביותר
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-[#d4af37]/30 text-[#ffdf73] text-sm font-medium tracking-wide">
+            ✨ הדרך החכמה לגלות את הריח שלך
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] leading-[1.2] tracking-tight mb-6 drop-shadow-2xl">
+            להריח יוקרה.<br />בלי להתחייב.
           </h1>
-          <p className="text-lg sm:text-xl text-white/80 font-light max-w-2xl mx-auto mb-10">
-            השוו מחירים ממוכרים מדורגים, ראו ביקורות, ורכשו בביטחון
+          <p className="text-lg sm:text-xl text-white/70 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+            אוסף בשמי הנישה והבוטיק הטובים בעולם. השוו מחירים ממוכרים מדורגים, ראו ביקורות, ורכשו בביטחון מלא.
           </p>
 
           {/* Minimalist Search Bar */}
           <div className="max-w-2xl mx-auto relative group">
-            <form action="/catalog" className="relative flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2 pl-4 focus-within:bg-white/20 transition-all duration-300">
+            <form action="/catalog" className="relative flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2 pl-4 focus-within:bg-white/20 focus-within:border-[#d4af37]/50 transition-all duration-300 shadow-2xl">
               <input
                 type="text"
                 name="q"
@@ -72,53 +75,59 @@ export default async function HomePage() {
               />
               <button
                 type="submit"
-                className="size-12 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white transition-colors flex-shrink-0"
+                className="size-12 bg-gradient-to-r from-[#d4af37] to-[#b8860b] hover:scale-105 rounded-full flex items-center justify-center text-black transition-all flex-shrink-0 shadow-[0_0_15px_rgba(212,175,55,0.4)]"
               >
-                <Search className="size-5" />
+                <Search className="size-5 font-bold" />
               </button>
             </form>
             
-            {/* Decorative Floating Badges (Hidden on very small screens) */}
-            <div className="hidden md:flex absolute -left-12 -top-12 items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-2xl animate-float shadow-2xl">
-              <Star className="size-4 text-yellow-400 fill-yellow-400" />
-              <span className="text-white text-sm font-medium">מוכרים מדורגים</span>
+            {/* Decorative Floating Badges */}
+            <div className="hidden md:flex absolute -left-12 -top-12 items-center gap-2 bg-black/40 backdrop-blur-md border border-[#d4af37]/30 px-4 py-2 rounded-2xl animate-float shadow-2xl">
+              <Star className="size-4 text-[#ffdf73] fill-[#ffdf73]" />
+              <span className="text-[#ffdf73] text-sm font-medium tracking-wide">מוכרים מדורגים</span>
             </div>
-            <div className="hidden md:flex absolute -right-8 -bottom-14 items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-2xl animate-float shadow-2xl" style={{ animationDelay: '1s' }}>
-              <TrendingUp className="size-4 text-blue-300" />
-              <span className="text-white text-sm font-medium">המחיר הזול ביותר</span>
+            <div className="hidden md:flex absolute -right-8 -bottom-14 items-center gap-2 bg-black/40 backdrop-blur-md border border-[#d4af37]/30 px-4 py-2 rounded-2xl animate-float shadow-2xl" style={{ animationDelay: '1s' }}>
+              <TrendingUp className="size-4 text-[#ffdf73]" />
+              <span className="text-[#ffdf73] text-sm font-medium tracking-wide">המחיר הזול ביותר</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features: Why Choosing Us */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-16 items-start">
+      <section className="py-32 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-16 items-start relative">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-3xl -z-10 pointer-events-none" />
+        
         <div className="lg:w-1/4">
-          <h2 className="text-3xl font-bold text-surface-900 leading-tight">למה לבחור<br />בנו?</h2>
+          <h2 className="text-4xl font-bold text-gradient-gold leading-tight mb-4">למה לבחור<br />בנו?</h2>
+          <p className="text-white/50 text-sm">סטנדרט חדש לקניית בשמי יוקרה ברשת.</p>
         </div>
         
         <div className="lg:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <h3 className="text-lg font-bold text-surface-900 mb-3 flex items-center gap-2">
-              <Search className="size-5 text-blue-500" /> חיפוש חכם
-            </h3>
-            <p className="text-surface-500 text-sm leading-relaxed">
+          <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
+            <div className="size-14 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center mb-6 border border-[#d4af37]/20">
+              <Search className="size-7 text-[#d4af37]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">חיפוש חכם</h3>
+            <p className="text-white/60 text-sm leading-relaxed">
               מנוע חיפוש מתקדם המאפשר למצוא בדיוק את הבושם שחיפשתם בעברית או באנגלית בקליק אחד.
             </p>
           </div>
-          <div>
-            <h3 className="text-lg font-bold text-surface-900 mb-3 flex items-center gap-2">
-              <TrendingUp className="size-5 text-blue-500" /> השוואת מחירים
-            </h3>
-            <p className="text-surface-500 text-sm leading-relaxed">
+          <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
+            <div className="size-14 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center mb-6 border border-[#d4af37]/20">
+              <TrendingUp className="size-7 text-[#d4af37]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">השוואת מחירים</h3>
+            <p className="text-white/60 text-sm leading-relaxed">
               קבלו גישה למספר מוכרים עבור אותו בושם, כך שתוכלו להשוות ולבחור את ההצעה המשתלמת ביותר.
             </p>
           </div>
-          <div>
-            <h3 className="text-lg font-bold text-surface-900 mb-3 flex items-center gap-2">
-              <ShieldCheck className="size-5 text-blue-500" /> קנייה בטוחה
-            </h3>
-            <p className="text-surface-500 text-sm leading-relaxed">
+          <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors">
+            <div className="size-14 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center mb-6 border border-[#d4af37]/20">
+              <ShieldCheck className="size-7 text-[#d4af37]" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">קנייה בטוחה</h3>
+            <p className="text-white/60 text-sm leading-relaxed">
               מערכת ביקורות פתוחה ושקופה מבטיחה שתוכלו לרכוש ממוכרים אמינים בלבד בביטחון מלא.
             </p>
           </div>
@@ -126,63 +135,67 @@ export default async function HomePage() {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-20 bg-surface-50">
+      <section className="py-32 relative border-t border-white/5">
+        <div className="absolute top-1/2 right-0 w-1/2 h-full bg-blue-900/5 rounded-full blur-3xl -z-10 pointer-events-none -translate-y-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-surface-900 mb-6">בשמים פופולריים</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-8">בשמים פופולריים</h2>
             
             {/* Category Pills */}
-            <div className="inline-flex items-center gap-2 bg-white border border-surface-200 rounded-full p-1 shadow-sm overflow-x-auto max-w-full">
-              <Link href="/catalog" className="px-6 py-2 rounded-full bg-surface-100 text-surface-900 text-sm font-medium whitespace-nowrap">הכל</Link>
-              <Link href="/catalog?gender=men" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap hover:bg-surface-50">גברים</Link>
-              <Link href="/catalog?gender=women" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap hover:bg-surface-50">נשים</Link>
-              <Link href="/catalog?gender=unisex" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap hover:bg-surface-50">יוניסקס</Link>
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full p-1.5 shadow-xl overflow-x-auto max-w-full backdrop-blur-sm">
+              <Link href="/catalog" className="px-8 py-2.5 rounded-full bg-[#d4af37] text-black text-sm font-bold whitespace-nowrap shadow-[0_0_15px_rgba(212,175,55,0.4)]">הכל</Link>
+              <Link href="/catalog?gender=men" className="px-8 py-2.5 rounded-full text-white/70 hover:text-white text-sm font-medium transition-colors whitespace-nowrap hover:bg-white/10">גברים</Link>
+              <Link href="/catalog?gender=women" className="px-8 py-2.5 rounded-full text-white/70 hover:text-white text-sm font-medium transition-colors whitespace-nowrap hover:bg-white/10">נשים</Link>
+              <Link href="/catalog?gender=unisex" className="px-8 py-2.5 rounded-full text-white/70 hover:text-white text-sm font-medium transition-colors whitespace-nowrap hover:bg-white/10">יוניסקס</Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
             {popularFragrances.map((f) => (
               <ProductCard key={f.id} fragrance={f} />
             ))}
             {popularFragrances.length === 0 && (
-              <div className="col-span-full text-center py-12 text-surface-500">
-                אין מוצרים להצגה כרגע.
+              <div className="col-span-full text-center py-20 bg-white/5 rounded-3xl border border-white/10">
+                <span className="text-4xl opacity-50 block mb-4">✨</span>
+                <span className="text-white/60">אין מוצרים להצגה כרגע.</span>
               </div>
             )}
           </div>
           
-          <div className="text-center mt-12">
-            <Link href="/catalog" className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors">
-              צפה בכל הקטלוג <ChevronRight className="size-4" />
+          <div className="text-center mt-16">
+            <Link href="/catalog" className="inline-flex items-center gap-2 text-[#d4af37] font-bold hover:text-[#ffdf73] transition-colors group text-lg">
+              צפה בכל הקולקציה 
+              <ChevronRight className="size-5 group-hover:-translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
       </section>
       
       {/* Footer CTA */}
-      <section className="py-20 bg-white border-t border-surface-200">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center justify-center size-16 bg-blue-50 text-blue-500 rounded-2xl mb-6">
-            <Sparkles className="size-8" />
+      <section className="py-32 relative border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#d4af37]/5 pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10">
+          <div className="inline-flex items-center justify-center size-20 bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#d4af37] rounded-3xl mb-8 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+            <Sparkles className="size-10" />
           </div>
-          <h2 className="text-3xl font-bold text-surface-900 mb-4">
-            יש לך בושם למכור?
+          <h2 className="text-4xl font-bold text-white mb-6">
+            הבושם הבא שלך מחכה לך
           </h2>
-          <p className="text-surface-500 mb-8">
-            הצטרף לשוק הבשמים וקבל גישה למאות קונים פוטנציאליים. 
-            פרסום מודעה חינמי ופשוט.
+          <p className="text-white/60 text-lg mb-12 max-w-xl mx-auto">
+            הצטרף לשוק הבשמים היוקרתי בישראל. 
+            מכור את הבשמים שלך למאות קונים פוטנציאליים או מצא את הריח הבא שלך.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/dashboard/new-listing"
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 bg-[#1a1a1a] text-white rounded-xl font-medium hover:bg-[#333] transition-colors shadow-lg"
+              href="/become-a-seller"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black rounded-full font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] text-lg"
             >
-              פרסם מודעה
-              <ArrowLeft className="size-4" />
+              הפוך למוכר
+              <ArrowLeft className="size-5" />
             </Link>
             <Link
               href="/catalog"
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 border-2 border-surface-200 text-surface-700 rounded-xl font-medium hover:bg-surface-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 bg-white/5 border border-white/20 text-white rounded-full font-bold hover:bg-white/10 transition-all text-lg"
             >
               עיין בקטלוג
             </Link>

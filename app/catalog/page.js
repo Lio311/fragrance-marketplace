@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Search, SlidersHorizontal, X, ChevronDown } from 'lucide-react';
+import { Search, SlidersHorizontal, ChevronDown } from 'lucide-react';
 import ProductCard from '@/app/components/ProductCard';
 import { cn } from '@/app/lib/utils';
 import { useDebounce } from '@/app/hooks/useDebounce';
@@ -76,165 +76,169 @@ function CatalogContent() {
   const activeFilterCount = Object.values(filters).filter(Boolean).length;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      {/* Page Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-surface-900 mb-2">קטלוג בשמים</h1>
-        <p className="text-surface-500">כל הבשמים במקום אחד — מצאו את הריח שלכם</p>
-      </div>
-
-      {/* Search & Filter Bar */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
-        <div className="relative flex-1">
-          <Search className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-surface-400" />
-          <input
-            type="text"
-            placeholder="חיפוש בשמים, מותגים..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pr-10 pl-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all"
-          />
+    <div className="min-h-screen bg-[#050505] text-white pt-8 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Page Header */}
+        <div className="mb-10 text-center animate-fade-in-up">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-3 text-gradient-gold drop-shadow-xl tracking-tight">
+            הקולקציה שלנו
+          </h1>
+          <p className="text-white/60 text-lg">גלו את אוסף בשמי היוקרה הטובים בעולם</p>
         </div>
 
-        {/* Sort Dropdown */}
-        <div className="relative">
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="appearance-none w-full sm:w-auto px-4 py-3 pr-10 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all cursor-pointer"
-          >
-            {SORT_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
-          <ChevronDown className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-surface-400 pointer-events-none" />
-        </div>
-
-        {/* Filter Toggle */}
-        <button
-          onClick={() => setShowFilters(!showFilters)}
-          className={cn(
-            'inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium border transition-colors',
-            showFilters || activeFilterCount > 0
-              ? 'bg-blue-50 border-blue-300 text-blue-700'
-              : 'bg-surface-50 border-surface-200 text-surface-600 hover:bg-surface-100'
-          )}
-        >
-          <SlidersHorizontal className="size-4" />
-          סינון
-          {activeFilterCount > 0 && (
-            <span className="size-5 rounded-full bg-blue-400 text-white text-xs flex items-center justify-center">
-              {activeFilterCount}
-            </span>
-          )}
-        </button>
-      </div>
-
-      {/* Filter Panel */}
-      {showFilters && (
-        <div className="bg-surface-50 border border-surface-200 rounded-2xl p-6 mb-6 animate-scale-in">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-surface-900">סינון מתקדם</h3>
-            <button onClick={clearFilters} className="text-sm text-blue-500 hover:text-blue-600">
-              נקה הכל
-            </button>
+        {/* Search & Filter Bar */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          <div className="relative flex-1 group">
+            <Search className="absolute right-4 top-1/2 -translate-y-1/2 size-5 text-white/40 group-focus-within:text-[#d4af37] transition-colors" />
+            <input
+              type="text"
+              placeholder="חיפוש בשמים, מותגים..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pr-12 pl-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-base placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-[#d4af37] focus:border-[#d4af37] transition-all"
+            />
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {/* Gender */}
-            <div>
-              <label className="block text-xs font-medium text-surface-600 mb-1.5">מגדר</label>
-              <select
-                value={filters.gender}
-                onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
-              >
-                <option value="">הכל</option>
-                {GENDERS.map((g) => (
-                  <option key={g.value} value={g.value}>{g.label}</option>
-                ))}
-              </select>
-            </div>
 
-            {/* Concentration */}
-            <div>
-              <label className="block text-xs font-medium text-surface-600 mb-1.5">ריכוז</label>
-              <select
-                value={filters.concentration}
-                onChange={(e) => setFilters({ ...filters, concentration: e.target.value })}
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
-              >
-                <option value="">הכל</option>
-                {CONCENTRATIONS.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Min Price */}
-            <div>
-              <label className="block text-xs font-medium text-surface-600 mb-1.5">מחיר מינימלי (₪)</label>
-              <input
-                type="number"
-                value={filters.minPrice}
-                onChange={(e) => setFilters({ ...filters, minPrice: e.target.value })}
-                placeholder="0"
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
-                dir="ltr"
-              />
-            </div>
-
-            {/* Max Price */}
-            <div>
-              <label className="block text-xs font-medium text-surface-600 mb-1.5">מחיר מקסימלי (₪)</label>
-              <input
-                type="number"
-                value={filters.maxPrice}
-                onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })}
-                placeholder="5000"
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
-                dir="ltr"
-              />
-            </div>
+          {/* Sort Dropdown */}
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="appearance-none w-full sm:w-auto px-5 py-4 pr-12 bg-white/5 border border-white/10 rounded-2xl text-base focus:outline-none focus:ring-1 focus:ring-[#d4af37] focus:border-[#d4af37] transition-all cursor-pointer hover:bg-white/10"
+            >
+              {SORT_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value} className="bg-[#1a1a1a]">
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-white/40 pointer-events-none" />
           </div>
-        </div>
-      )}
 
-      {/* Results */}
-      {loading ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="rounded-xl overflow-hidden">
-              <div className="skeleton aspect-square" />
-              <div className="p-3.5 space-y-2">
-                <div className="skeleton h-3 w-16" />
-                <div className="skeleton h-4 w-3/4" />
-                <div className="skeleton h-3 w-1/2" />
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : fragrances.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 stagger-children">
-          {fragrances.map((f) => (
-            <ProductCard key={f.id} fragrance={f} />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-20">
-          <div className="text-5xl mb-4">🔍</div>
-          <h3 className="text-xl font-bold text-surface-900 mb-2">לא נמצאו תוצאות</h3>
-          <p className="text-surface-500 mb-6">נסו לשנות את מילות החיפוש או הסינון</p>
+          {/* Filter Toggle */}
           <button
-            onClick={clearFilters}
-            className="px-6 py-2.5 bg-surface-100 text-surface-700 rounded-xl text-sm font-medium hover:bg-surface-200 transition-colors"
+            onClick={() => setShowFilters(!showFilters)}
+            className={cn(
+              'inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-base font-medium border transition-all duration-300',
+              showFilters || activeFilterCount > 0
+                ? 'bg-[#d4af37]/20 border-[#d4af37] text-[#ffdf73]'
+                : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
+            )}
           >
-            נקה סינון
+            <SlidersHorizontal className="size-5" />
+            סינון
+            {activeFilterCount > 0 && (
+              <span className="size-5 rounded-full bg-[#d4af37] text-black text-xs flex items-center justify-center font-bold">
+                {activeFilterCount}
+              </span>
+            )}
           </button>
         </div>
-      )}
+
+        {/* Filter Panel */}
+        {showFilters && (
+          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-8 animate-scale-in">
+            <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+              <h3 className="text-xl font-bold text-white">סינון מתקדם</h3>
+              <button onClick={clearFilters} className="text-sm text-[#d4af37] hover:text-[#ffdf73] transition-colors">
+                נקה הכל
+              </button>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Gender */}
+              <div>
+                <label className="block text-sm font-medium text-white/60 mb-2">מגדר</label>
+                <select
+                  value={filters.gender}
+                  onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
+                  className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#d4af37]"
+                >
+                  <option value="" className="bg-[#1a1a1a]">הכל</option>
+                  {GENDERS.map((g) => (
+                    <option key={g.value} value={g.value} className="bg-[#1a1a1a]">{g.label}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Concentration */}
+              <div>
+                <label className="block text-sm font-medium text-white/60 mb-2">ריכוז</label>
+                <select
+                  value={filters.concentration}
+                  onChange={(e) => setFilters({ ...filters, concentration: e.target.value })}
+                  className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#d4af37]"
+                >
+                  <option value="" className="bg-[#1a1a1a]">הכל</option>
+                  {CONCENTRATIONS.map((c) => (
+                    <option key={c} value={c} className="bg-[#1a1a1a]">{c}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Min Price */}
+              <div>
+                <label className="block text-sm font-medium text-white/60 mb-2">מחיר מינימלי (₪)</label>
+                <input
+                  type="number"
+                  value={filters.minPrice}
+                  onChange={(e) => setFilters({ ...filters, minPrice: e.target.value })}
+                  placeholder="0"
+                  className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#d4af37] placeholder:text-white/20"
+                  dir="ltr"
+                />
+              </div>
+
+              {/* Max Price */}
+              <div>
+                <label className="block text-sm font-medium text-white/60 mb-2">מחיר מקסימלי (₪)</label>
+                <input
+                  type="number"
+                  value={filters.maxPrice}
+                  onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })}
+                  placeholder="5000"
+                  className="w-full px-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm focus:outline-none focus:border-[#d4af37] placeholder:text-white/20"
+                  dir="ltr"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Results */}
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+                <div className="skeleton aspect-square opacity-20" />
+                <div className="p-4 space-y-3">
+                  <div className="skeleton h-4 w-1/4 opacity-20" />
+                  <div className="skeleton h-5 w-3/4 opacity-20" />
+                  <div className="skeleton h-4 w-1/2 opacity-20" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : fragrances.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 stagger-children">
+            {fragrances.map((f) => (
+              <ProductCard key={f.id} fragrance={f} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-32 bg-white/5 border border-white/10 rounded-3xl mt-8">
+            <div className="text-6xl mb-6 opacity-80">✨</div>
+            <h3 className="text-2xl font-bold text-white mb-3">לא נמצאו בשמים</h3>
+            <p className="text-white/50 mb-8 max-w-md mx-auto">לא מצאנו תוצאות שתואמות לחיפוש שלך. נסה לשנות את הסינון כדי לראות עוד אפשרויות.</p>
+            <button
+              onClick={clearFilters}
+              className="px-8 py-3 bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+            >
+              נקה סינון והצג הכל
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -242,8 +246,8 @@ function CatalogContent() {
 export default function CatalogPage() {
   return (
     <Suspense fallback={
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <div className="text-center py-20">טוען קטלוג...</div>
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+        <div className="text-[#d4af37] text-xl animate-pulse">טוען קולקציה...</div>
       </div>
     }>
       <CatalogContent />

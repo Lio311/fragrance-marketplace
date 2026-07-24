@@ -18,37 +18,37 @@ export default function ProductCard({ fragrance }) {
   } = fragrance;
 
   return (
-    <Link href={`/product/${slug}`} className="product-card group block">
+    <Link href={`/product/${slug}`} className="group block bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-[#d4af37]/50 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] hover:-translate-y-1">
       {/* Image */}
-      <div className="relative aspect-square bg-surface-50 overflow-hidden">
+      <div className="relative aspect-square bg-gradient-to-br from-white/5 to-transparent overflow-hidden flex items-center justify-center p-6">
         {image_url ? (
           <Image
             src={image_url}
             alt={name_he}
             fill
-            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+            className="object-contain p-6 drop-shadow-2xl group-hover:scale-110 transition-transform duration-700 ease-out"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
         ) : (
-          <div className="flex items-center justify-center h-full text-surface-300 text-4xl">
+          <div className="flex items-center justify-center h-full text-white/20 text-5xl">
             🧴
           </div>
         )}
 
         {/* Price Badge */}
         {lowest_price && (
-          <div className="absolute bottom-3 left-3">
-            <div className="price-badge price-badge--lowest flex items-center gap-1">
+          <div className="absolute bottom-4 left-4">
+            <div className="bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
               <TrendingDown className="size-3.5" />
-              <span>{formatPrice(lowest_price)}</span>
+              <span className="direction-ltr">{formatPrice(lowest_price)}</span>
             </div>
           </div>
         )}
 
         {/* Condition Tags */}
         {concentration && (
-          <div className="absolute top-3 right-3">
-            <span className="px-2 py-0.5 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-surface-600 border border-surface-200">
+          <div className="absolute top-4 right-4">
+            <span className="px-2.5 py-1 bg-black/50 backdrop-blur-md rounded-full text-[10px] font-bold text-white/90 border border-white/20 tracking-wider">
               {concentration}
             </span>
           </div>
@@ -56,16 +56,16 @@ export default function ProductCard({ fragrance }) {
       </div>
 
       {/* Info */}
-      <div className="p-3.5">
-        <p className="text-xs text-blue-500 font-medium mb-0.5">{brand_he}</p>
-        <h3 className="text-sm font-bold text-surface-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+      <div className="p-5 border-t border-white/5">
+        <p className="text-xs text-[#d4af37] font-bold tracking-widest mb-1.5 uppercase">{brand_he}</p>
+        <h3 className="text-base font-bold text-white mb-3 line-clamp-2 leading-tight group-hover:text-[#ffdf73] transition-colors">
           {name_he}
         </h3>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between pt-3 border-t border-white/5">
           {/* Sellers Count */}
-          <div className="flex items-center gap-1 text-xs text-surface-500">
-            <Users className="size-3.5" />
+          <div className="flex items-center gap-1.5 text-xs font-medium text-white/50">
+            <Users className="size-4 opacity-70" />
             <span>{sellers_count || 0} מוכרים</span>
           </div>
 

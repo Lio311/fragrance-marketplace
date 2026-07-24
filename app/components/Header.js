@@ -72,7 +72,7 @@ export default function Header() {
         'fixed top-0 inset-x-0 z-50 transition-all duration-300',
         isTransparent
           ? 'bg-transparent text-white border-b border-white/10'
-          : 'bg-white/95 backdrop-blur-sm shadow-header text-surface-900'
+          : 'bg-[#050505]/95 backdrop-blur-md shadow-lg text-white border-b border-white/10'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -85,10 +85,10 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+                  'px-4 py-2 rounded-full text-sm font-bold transition-all',
                   pathname === item.href
-                    ? (isTransparent ? 'bg-white/20 text-white' : 'bg-surface-100 text-surface-900')
-                    : (isTransparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-surface-600 hover:bg-surface-50 hover:text-surface-900')
+                    ? (isTransparent ? 'bg-white/20 text-white' : 'bg-[#d4af37]/20 text-[#d4af37]')
+                    : (isTransparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/70 hover:bg-white/10 hover:text-white')
                 )}
               >
                 {item.label}
@@ -116,14 +116,6 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Search Bar */}
-          <form
-            onSubmit={handleSearch}
-            className={cn(
-              'hidden md:flex items-center transition-all duration-300',
-              isSearchFocused ? 'w-80' : 'w-64'
-            )}
-          >
           {/* Left Side: Auth & Search */}
           <div className="flex items-center justify-end gap-3 flex-1">
             {/* Search Bar */}
@@ -135,7 +127,7 @@ export default function Header() {
               )}
             >
               <div className="relative w-full">
-                <Search className={cn("absolute right-3 top-1/2 -translate-y-1/2 size-4", isTransparent ? "text-white/60" : "text-surface-400")} />
+                <Search className={cn("absolute right-3 top-1/2 -translate-y-1/2 size-4", isTransparent ? "text-white/60" : "text-white/40")} />
                 <input
                   type="text"
                   placeholder="חיפוש בשמים..."
@@ -147,7 +139,7 @@ export default function Header() {
                     "w-full pr-9 pl-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 transition-all",
                     isTransparent 
                       ? "bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:ring-white/30 focus:border-white/50" 
-                      : "bg-surface-50 border-surface-200 text-surface-900 placeholder:text-surface-400 focus:ring-blue-400/30 focus:border-blue-400"
+                      : "bg-[#1a1a1a] border-[#333] text-white placeholder:text-white/40 focus:ring-[#d4af37]/30 focus:border-[#d4af37]"
                   )}
                 />
               </div>
@@ -155,18 +147,10 @@ export default function Header() {
 
             {isLoaded && !user ? (
               <>
-                <Link
-                  href="/sign-in"
-                  className={cn("hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-colors", 
-                    isTransparent ? "text-white hover:bg-white/10" : "text-surface-700 hover:text-surface-900 hover:bg-surface-50")}
-                >
-                  התחברות
+                <Link href="/sign-in" className={cn("text-sm font-bold transition-colors", isTransparent ? "text-white hover:text-white/80" : "text-white/80 hover:text-white")}>
+                  התחבר
                 </Link>
-                <Link
-                  href="/sign-up"
-                  className={cn("inline-flex items-center gap-2 px-5 py-2 text-sm font-medium rounded-full transition-colors",
-                    isTransparent ? "bg-white text-black hover:bg-white/90" : "bg-[#1a1a1a] text-white hover:bg-[#333]")}
-                >
+                <Link href="/sign-up" className={cn("inline-flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-all shadow-lg hover:scale-105", isTransparent ? "bg-white text-black hover:bg-white/90" : "bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]")}>
                   הרשמה
                 </Link>
               </>

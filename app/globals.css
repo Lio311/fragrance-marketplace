@@ -40,6 +40,7 @@
   --color-marketplace-border: #e8e8e8;
   --color-marketplace-hover: #f8fafd;
   --color-marketplace-accent: #3b82f6;
+  --color-marketplace-gold: #d4af37;
   --color-marketplace-text: #1a1a1a;
   --color-marketplace-muted: #6b7280;
   --color-marketplace-success: #10b981;
@@ -286,8 +287,8 @@ input[autocomplete='one-time-code'] {
 }
 
 /* Gold Gradient Text */
-.text-gradient-blue {
-  background: linear-gradient(135deg, #d4af37 0%, #c5a028 50%, #e8c94f 100%);
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #ffdf73 50%, #b8860b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

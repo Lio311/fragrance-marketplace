@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================
    FRAGRANCE MARKETPLACE — DESIGN SYSTEM
@@ -6,9 +7,6 @@
    StockX/GOAT-inspired marketplace aesthetic
    Full RTL Hebrew support
    ============================================ */
-
-/* Google Fonts — Assistant for Hebrew support */
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================
    CUSTOM THEME TOKENS (Tailwind v4)

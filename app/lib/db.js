@@ -1,18 +1,18 @@
 import { Pool, neon } from '@neondatabase/serverless';
 
-export const sql = neon(process.env.DATABASE_URL);
+export const sql = neon(process.env.DATABASE_URL || 'postgres://dummy:dummy@dummy/dummy');
 
 let pool;
 
 if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL || 'postgres://dummy:dummy@dummy/dummy',
     ssl: { rejectUnauthorized: false },
   });
 } else {
   if (!global.pool) {
     global.pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString: process.env.DATABASE_URL || 'postgres://dummy:dummy@dummy/dummy',
       ssl: { rejectUnauthorized: false },
     });
   }

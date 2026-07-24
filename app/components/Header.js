@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useUser, useClerk, SignedIn, SignedOut } from '@clerk/nextjs';
+import { useUser, useClerk } from '@clerk/nextjs';
 import Image from 'next/image';
 import {
   Search,
@@ -130,22 +130,24 @@ export default function Header() {
 
           {/* Auth & Profile */}
           <div className="flex items-center gap-2">
-            <SignedOut>
-              <Link
-                href="/sign-in"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-surface-700 hover:text-surface-900 hover:bg-surface-50 rounded-lg transition-colors"
-              >
-                התחברות
-              </Link>
-              <Link
-                href="/sign-up"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#1a1a1a] text-white rounded-xl hover:bg-[#333] transition-colors"
-              >
-                הרשמה
-              </Link>
-            </SignedOut>
+            {isLoaded && !user ? (
+              <>
+                <Link
+                  href="/sign-in"
+                  className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-surface-700 hover:text-surface-900 hover:bg-surface-50 rounded-lg transition-colors"
+                >
+                  התחברות
+                </Link>
+                <Link
+                  href="/sign-up"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#1a1a1a] text-white rounded-xl hover:bg-[#333] transition-colors"
+                >
+                  הרשמה
+                </Link>
+              </>
+            ) : null}
 
-            <SignedIn>
+            {isLoaded && user ? (
               <div className="relative" ref={profileRef}>
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
@@ -216,7 +218,7 @@ export default function Header() {
                   </div>
                 )}
               </div>
-            </SignedIn>
+            ) : null}
 
             {/* Mobile Menu Toggle */}
             <button

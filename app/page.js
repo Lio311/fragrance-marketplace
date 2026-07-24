@@ -21,7 +21,6 @@ async function getPopularFragrances() {
       FROM fragrances f
       LEFT JOIN listings l ON l.fragrance_id = f.id AND l.is_active = true
       LEFT JOIN users u ON u.id = l.seller_id
-      WHERE f.status = 'approved'
       GROUP BY f.id
       ORDER BY sellers_count DESC, lowest_price ASC NULLS LAST
       LIMIT 4
@@ -133,11 +132,11 @@ export default async function HomePage() {
             <h2 className="text-3xl font-bold text-surface-900 mb-6">בשמים פופולריים</h2>
             
             {/* Category Pills */}
-            <div className="inline-flex items-center bg-white border border-surface-200 rounded-full p-1 shadow-sm overflow-x-auto max-w-full">
+            <div className="inline-flex items-center gap-2 bg-white border border-surface-200 rounded-full p-1 shadow-sm overflow-x-auto max-w-full">
               <Link href="/catalog" className="px-6 py-2 rounded-full bg-surface-100 text-surface-900 text-sm font-medium whitespace-nowrap">הכל</Link>
-              <Link href="/catalog?gender=men" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap">גברים</Link>
-              <Link href="/catalog?gender=women" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap">נשים</Link>
-              <Link href="/catalog?gender=unisex" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap">יוניסקס</Link>
+              <Link href="/catalog?gender=men" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap hover:bg-surface-50">גברים</Link>
+              <Link href="/catalog?gender=women" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap hover:bg-surface-50">נשים</Link>
+              <Link href="/catalog?gender=unisex" className="px-6 py-2 rounded-full text-surface-500 hover:text-surface-900 text-sm font-medium transition-colors whitespace-nowrap hover:bg-surface-50">יוניסקס</Link>
             </div>
           </div>
 

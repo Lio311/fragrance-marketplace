@@ -63,33 +63,23 @@ export default function Header() {
     }
   };
 
+  const isHomePage = pathname === '/';
+  const isTransparent = isHomePage && !isScrolled;
+
   return (
     <header
       className={cn(
         'fixed top-0 inset-x-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'glass-header shadow-header'
-          : 'bg-white/95 backdrop-blur-sm'
+        isTransparent
+          ? 'bg-transparent text-white border-b border-white/10'
+          : 'bg-white/95 backdrop-blur-sm shadow-header text-surface-900'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 group"
-          >
-            <div className="relative size-10">
-              <Image src="/FM.png" alt="Fragrance Marketplace" fill className="object-contain" priority />
-            </div>
-            <span className="text-lg font-bold text-surface-900 group-hover:text-blue-500 transition-colors hidden sm:block">
-              Fragrance
-              <span className="text-blue-500"> Marketplace</span>
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+        <div className="flex items-center justify-between h-20 relative">
+          
+          {/* Desktop Navigation (Right Side in RTL) */}
+          <nav className="hidden md:flex items-center gap-1 flex-1">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
@@ -97,14 +87,34 @@ export default function Header() {
                 className={cn(
                   'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
                   pathname === item.href
-                    ? 'bg-surface-100 text-surface-900'
-                    : 'text-surface-600 hover:bg-surface-50 hover:text-surface-900'
+                    ? (isTransparent ? 'bg-white/20 text-white' : 'bg-surface-100 text-surface-900')
+                    : (isTransparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-surface-600 hover:bg-surface-50 hover:text-surface-900')
                 )}
               >
                 {item.label}
               </Link>
             ))}
           </nav>
+
+          {/* Center Logo */}
+          <Link
+            href="/"
+            className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 group z-10"
+          >
+            <div className="relative size-10">
+              <Image 
+                src="/FM.png" 
+                alt="Fragrance Marketplace" 
+                fill 
+                className={cn("object-contain transition-all", isTransparent && "brightness-0 invert")} 
+                priority 
+              />
+            </div>
+            <span className={cn("text-lg font-bold transition-colors hidden sm:block", isTransparent ? "text-white" : "text-surface-900 group-hover:text-blue-500")}>
+              Fragrance
+              <span className={isTransparent ? "text-white" : "text-blue-500"}> Marketplace</span>
+            </span>
+          </Link>
 
           {/* Search Bar */}
           <form
@@ -114,33 +124,48 @@ export default function Header() {
               isSearchFocused ? 'w-80' : 'w-64'
             )}
           >
-            <div className="relative w-full">
-              <Search className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-surface-400" />
-              <input
-                type="text"
-                placeholder="חיפוש בשמים..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setIsSearchFocused(false)}
-                className="w-full pr-10 pl-4 py-2 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all"
-              />
-            </div>
-          </form>
+          {/* Left Side: Auth & Search */}
+          <div className="flex items-center justify-end gap-3 flex-1">
+            {/* Search Bar */}
+            <form
+              onSubmit={handleSearch}
+              className={cn(
+                'hidden lg:flex items-center transition-all duration-300',
+                isSearchFocused ? 'w-64' : 'w-48'
+              )}
+            >
+              <div className="relative w-full">
+                <Search className={cn("absolute right-3 top-1/2 -translate-y-1/2 size-4", isTransparent ? "text-white/60" : "text-surface-400")} />
+                <input
+                  type="text"
+                  placeholder="חיפוש בשמים..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => setIsSearchFocused(false)}
+                  className={cn(
+                    "w-full pr-9 pl-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 transition-all",
+                    isTransparent 
+                      ? "bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:ring-white/30 focus:border-white/50" 
+                      : "bg-surface-50 border-surface-200 text-surface-900 placeholder:text-surface-400 focus:ring-blue-400/30 focus:border-blue-400"
+                  )}
+                />
+              </div>
+            </form>
 
-          {/* Auth & Profile */}
-          <div className="flex items-center gap-2">
             {isLoaded && !user ? (
               <>
                 <Link
                   href="/sign-in"
-                  className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-surface-700 hover:text-surface-900 hover:bg-surface-50 rounded-lg transition-colors"
+                  className={cn("hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full transition-colors", 
+                    isTransparent ? "text-white hover:bg-white/10" : "text-surface-700 hover:text-surface-900 hover:bg-surface-50")}
                 >
                   התחברות
                 </Link>
                 <Link
                   href="/sign-up"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#1a1a1a] text-white rounded-xl hover:bg-[#333] transition-colors"
+                  className={cn("inline-flex items-center gap-2 px-5 py-2 text-sm font-medium rounded-full transition-colors",
+                    isTransparent ? "bg-white text-black hover:bg-white/90" : "bg-[#1a1a1a] text-white hover:bg-[#333]")}
                 >
                   הרשמה
                 </Link>
@@ -223,7 +248,7 @@ export default function Header() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-surface-50 transition-colors"
+              className={cn("md:hidden p-2 rounded-lg transition-colors", isTransparent ? "text-white hover:bg-white/10" : "text-surface-700 hover:bg-surface-50")}
             >
               {isMobileMenuOpen ? (
                 <X className="size-5" />

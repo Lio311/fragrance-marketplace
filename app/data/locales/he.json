@@ -1,0 +1,257 @@
+{
+  "site": {
+    "name": "Fragrance Marketplace",
+    "tagline": "שוק הבשמים — מצא את המחיר הטוב ביותר",
+    "description": "שוק בשמים מקוון — השוו מחירים ומוכרים, מצאו את העסקה הטובה ביותר"
+  },
+  "nav": {
+    "home": "דף הבית",
+    "catalog": "קטלוג",
+    "brands": "מותגים",
+    "about": "אודות",
+    "terms": "תקנון",
+    "dashboard": "לוח בקרה",
+    "admin": "ניהול",
+    "signIn": "התחברות",
+    "signUp": "הרשמה",
+    "signOut": "התנתקות",
+    "myProfile": "הפרופיל שלי",
+    "myListings": "המודעות שלי",
+    "search": "חיפוש בשמים..."
+  },
+  "hero": {
+    "title": "מצא את הבושם המושלם במחיר הטוב ביותר",
+    "subtitle": "השוו מחירים ממוכרים מדורגים, רכשו בביטחון",
+    "cta": "התחילו לחפש",
+    "stats": {
+      "listings": "מודעות פעילות",
+      "sellers": "מוכרים מאומתים",
+      "transactions": "עסקאות שהושלמו"
+    }
+  },
+  "catalog": {
+    "title": "קטלוג בשמים",
+    "subtitle": "כל הבשמים במקום אחד — מצאו את הריח שלכם",
+    "filters": {
+      "title": "סינון",
+      "brand": "מותג",
+      "gender": "מגדר",
+      "men": "גברים",
+      "women": "נשים",
+      "unisex": "יוניסקס",
+      "priceRange": "טווח מחירים",
+      "minPrice": "מחיר מינימלי",
+      "maxPrice": "מחיר מקסימלי",
+      "concentration": "ריכוז",
+      "notes": "תווי ריח",
+      "rating": "דירוג מוכר",
+      "clearAll": "נקה סינון",
+      "apply": "החל סינון"
+    },
+    "sort": {
+      "title": "מיון",
+      "lowestPrice": "מחיר נמוך לגבוה",
+      "highestPrice": "מחיר גבוה לנמוך",
+      "highestRating": "דירוג גבוה",
+      "newest": "הכי חדש",
+      "mostSellers": "הכי הרבה מוכרים"
+    },
+    "noResults": "לא נמצאו תוצאות",
+    "showMore": "הצג עוד",
+    "sellersCount": "מוכרים",
+    "from": "החל מ-"
+  },
+  "product": {
+    "title": "דף מוצר",
+    "brand": "מותג",
+    "concentration": "ריכוז",
+    "gender": "מגדר",
+    "year": "שנת השקה",
+    "perfumer": "בשם",
+    "size": "גודל",
+    "notes": {
+      "title": "תווי ריח",
+      "top": "תווים עליונים",
+      "heart": "תווי לב",
+      "base": "תווי בסיס"
+    },
+    "sellers": {
+      "title": "מוכרים שמציעים את הבושם הזה",
+      "noSellers": "אין מוכרים כרגע — היו הראשונים למכור!",
+      "contact": "צור קשר",
+      "price": "מחיר",
+      "condition": "מצב",
+      "fillLevel": "אחוז מילוי",
+      "bottleSize": "גודל בקבוק",
+      "sellerPhoto": "תמונת המוכר",
+      "sortByPrice": "מיון לפי מחיר",
+      "sortByRating": "מיון לפי דירוג"
+    },
+    "conditions": {
+      "new_sealed": "חדש אטום",
+      "new_opened": "חדש פתוח",
+      "used": "משומש",
+      "tester": "טסטר"
+    }
+  },
+  "seller": {
+    "profile": "פרופיל מוכר",
+    "memberSince": "חבר מאז",
+    "totalSales": "סה״כ מכירות",
+    "rating": "דירוג",
+    "reviews": "ביקורות",
+    "verified": "מוכר מאומת",
+    "activeListings": "מודעות פעילות",
+    "contactSeller": "צור קשר עם המוכר",
+    "noReviews": "אין ביקורות עדיין"
+  },
+  "dashboard": {
+    "title": "לוח בקרה",
+    "overview": "סקירה כללית",
+    "myListings": "המודעות שלי",
+    "newListing": "מודעה חדשה",
+    "analytics": "אנליטיקס",
+    "stats": {
+      "activeListings": "מודעות פעילות",
+      "totalViews": "סה״כ צפיות",
+      "avgRating": "דירוג ממוצע",
+      "totalSales": "סה״כ מכירות"
+    },
+    "listing": {
+      "selectFragrance": "בחר בושם",
+      "searchFragrance": "חפש בושם...",
+      "setPrice": "הגדר מחיר",
+      "condition": "מצב הבקבוק",
+      "fillLevel": "אחוז מילוי",
+      "bottleSize": "גודל בקבוק (מ״ל)",
+      "uploadPhoto": "העלה תמונה",
+      "description": "תיאור (אופציונלי)",
+      "submit": "פרסם מודעה",
+      "edit": "ערוך",
+      "delete": "מחק",
+      "deactivate": "השבת",
+      "activate": "הפעל",
+      "submitNewFragrance": "הגש בושם חדש לאישור"
+    },
+    "priceComparison": {
+      "title": "השוואת מחירים",
+      "yourPrice": "המחיר שלך",
+      "lowestPrice": "המחיר הנמוך ביותר",
+      "avgPrice": "מחיר ממוצע",
+      "undercutTip": "טיפ: הורד את המחיר כדי להיות הזול ביותר!"
+    }
+  },
+  "admin": {
+    "title": "פאנל ניהול",
+    "dashboard": "לוח ניהול",
+    "products": "ניהול מוצרים",
+    "users": "ניהול משתמשים",
+    "transactions": "עסקאות",
+    "disputes": "סכסוכים",
+    "listings": "מודעות",
+    "settings": "הגדרות",
+    "stats": {
+      "totalUsers": "סה״כ משתמשים",
+      "activeListings": "מודעות פעילות",
+      "completedTransactions": "עסקאות שהושלמו",
+      "openDisputes": "סכסוכים פתוחים"
+    },
+    "actions": {
+      "approve": "אשר",
+      "reject": "דחה",
+      "ban": "חסום",
+      "unban": "בטל חסימה",
+      "verify": "אמת מוכר",
+      "resolve": "פתור",
+      "delete": "מחק",
+      "edit": "ערוך",
+      "view": "צפה"
+    },
+    "submissions": {
+      "title": "בשמים ממתינים לאישור",
+      "noSubmissions": "אין בשמים ממתינים",
+      "approveAndCreate": "אשר וצור מוצר",
+      "linkToExisting": "חבר למוצר קיים"
+    }
+  },
+  "review": {
+    "title": "דרג את המוכר",
+    "ratingLabel": "דירוג",
+    "commentLabel": "הערה (אופציונלי)",
+    "commentPlaceholder": "ספר על החוויה שלך עם המוכר...",
+    "submit": "שלח ביקורת",
+    "thankYou": "תודה על הביקורת!",
+    "stars": {
+      "1": "גרוע",
+      "2": "לא טוב",
+      "3": "סביר",
+      "4": "טוב",
+      "5": "מעולה"
+    }
+  },
+  "howItWorks": {
+    "title": "איך זה עובד?",
+    "step1": {
+      "title": "חפשו",
+      "description": "חפשו את הבושם שאתם מחפשים מתוך מאות אפשרויות"
+    },
+    "step2": {
+      "title": "השוו מחירים",
+      "description": "ראו את כל המוכרים והשוו מחירים ודירוגים"
+    },
+    "step3": {
+      "title": "רכשו בביטחון",
+      "description": "צרו קשר עם המוכר המדורג ורכשו בביטחון מלא"
+    }
+  },
+  "trust": {
+    "title": "למה לסמוך עלינו?",
+    "verifiedSellers": "מוכרים מאומתים",
+    "buyerProtection": "הגנת קונים",
+    "ratingSystem": "מערכת דירוגים",
+    "freeToUse": "שימוש חינמי"
+  },
+  "terms": {
+    "title": "תקנון השוק",
+    "lastUpdated": "עדכון אחרון"
+  },
+  "common": {
+    "loading": "טוען...",
+    "error": "שגיאה",
+    "success": "הצלחה",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "confirm": "אישור",
+    "back": "חזרה",
+    "next": "הבא",
+    "previous": "הקודם",
+    "search": "חיפוש",
+    "noResults": "לא נמצאו תוצאות",
+    "seeAll": "ראה הכל",
+    "learnMore": "למד עוד",
+    "close": "סגור",
+    "shekel": "₪",
+    "ml": "מ״ל",
+    "outOf": "מתוך",
+    "page": "עמוד",
+    "of": "מתוך"
+  },
+  "errors": {
+    "notFound": "העמוד לא נמצא",
+    "notFoundDescription": "העמוד שחיפשתם לא קיים. חזרו לדף הבית.",
+    "serverError": "שגיאה בשרת",
+    "serverErrorDescription": "אירעה שגיאה. נסו שוב מאוחר יותר.",
+    "unauthorized": "אין הרשאה",
+    "forbidden": "גישה נדחתה",
+    "backHome": "חזרה לדף הבית",
+    "tryAgain": "נסה שוב"
+  },
+  "footer": {
+    "about": "אודות",
+    "terms": "תקנון",
+    "privacy": "פרטיות",
+    "contact": "צור קשר",
+    "rights": "כל הזכויות שמורות",
+    "builtWith": "נבנה באהבה 🇮🇱"
+  }
+}

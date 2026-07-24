@@ -15,10 +15,10 @@ const CONDITION_LABELS = {
 };
 
 const CONDITION_COLORS = {
-  new_sealed: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  new_opened: 'bg-blue-50 text-blue-700 border-blue-200',
-  used: 'bg-surface-50 text-surface-600 border-surface-200',
-  tester: 'bg-slate-50 text-slate-700 border-slate-200',
+  new_sealed: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+  new_opened: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+  used: 'bg-white/10 text-white/70 border-white/20',
+  tester: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
 };
 
 export default function SellerListingsClient({ listings = [] }) {
@@ -41,13 +41,13 @@ export default function SellerListingsClient({ listings = [] }) {
 
   if (sorted.length === 0) {
     return (
-      <div className="text-center py-16 bg-surface-50 rounded-2xl border border-surface-200">
-        <div className="text-5xl mb-4">📦</div>
-        <h3 className="text-xl font-bold text-surface-900 mb-2">אין מוכרים כרגע</h3>
-        <p className="text-surface-500 mb-6">היו הראשונים למכור את הבושם הזה!</p>
+      <div className="text-center py-20 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
+        <div className="text-6xl mb-6 opacity-80">📦</div>
+        <h3 className="text-2xl font-bold text-white mb-3">אין מוכרים כרגע</h3>
+        <p className="text-white/50 mb-8 max-w-md mx-auto">היו הראשונים להציע את הבושם הזה למכירה בשוק הבשמים.</p>
         <Link
           href="/dashboard/new-listing"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-white rounded-xl font-medium hover:bg-[#333] transition-colors"
+          className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,175,55,0.3)]"
         >
           פרסם מודעה
         </Link>
@@ -58,129 +58,139 @@ export default function SellerListingsClient({ listings = [] }) {
   return (
     <div>
       {/* Sort Controls */}
-      <div className="flex items-center gap-2 mb-4">
-        <ArrowUpDown className="size-4 text-surface-400" />
-        <span className="text-sm text-surface-500">מיון:</span>
-        {[
-          { value: 'price_asc', label: 'מחיר ↑' },
-          { value: 'price_desc', label: 'מחיר ↓' },
-          { value: 'rating', label: 'דירוג' },
-        ].map((opt) => (
-          <button
-            key={opt.value}
-            onClick={() => setSortBy(opt.value)}
-            className={cn(
-              'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
-              sortBy === opt.value
-                ? 'bg-blue-50 text-blue-700 border border-blue-300'
-                : 'bg-surface-50 text-surface-600 border border-surface-200 hover:bg-surface-100'
-            )}
-          >
-            {opt.label}
-          </button>
-        ))}
+      <div className="flex items-center gap-3 mb-6 bg-white/5 p-2 rounded-2xl border border-white/10 w-fit backdrop-blur-sm">
+        <div className="flex items-center justify-center size-8 rounded-full bg-white/10 shrink-0">
+          <ArrowUpDown className="size-4 text-white/60" />
+        </div>
+        <span className="text-sm font-medium text-white/50 pl-2">מיון:</span>
+        <div className="flex items-center gap-1">
+          {[
+            { value: 'price_asc', label: 'מחיר ↑' },
+            { value: 'price_desc', label: 'מחיר ↓' },
+            { value: 'rating', label: 'דירוג מוכר' },
+          ].map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setSortBy(opt.value)}
+              className={cn(
+                'px-4 py-2 rounded-xl text-sm font-bold transition-all',
+                sortBy === opt.value
+                  ? 'bg-[#d4af37]/20 text-[#ffdf73] border border-[#d4af37]/30'
+                  : 'bg-transparent text-white/60 hover:text-white hover:bg-white/10 border border-transparent'
+              )}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Listings Grid */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         {sorted.map((listing, i) => (
           <div
             key={listing.id || i}
             className={cn(
-              'flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-2xl border transition-all hover:shadow-card-hover',
-              i === 0 ? 'border-blue-300 bg-blue-50/30' : 'border-surface-200 bg-white'
+              'group flex flex-col sm:flex-row items-start sm:items-center gap-5 p-5 sm:p-6 rounded-2xl border transition-all duration-300',
+              i === 0 
+                ? 'border-[#d4af37]/50 bg-gradient-to-r from-[#d4af37]/10 to-transparent shadow-[0_0_30px_rgba(212,175,55,0.1)]' 
+                : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'
             )}
           >
             {/* Rank Badge */}
             {i === 0 && (
-              <div className="hidden sm:flex items-center justify-center size-8 rounded-full bg-blue-400 text-white text-xs font-bold shrink-0">
+              <div className="hidden sm:flex items-center justify-center size-10 rounded-full bg-gradient-to-br from-[#d4af37] to-[#b8860b] text-black text-lg font-extrabold shrink-0 shadow-lg">
                 1
               </div>
             )}
 
             {/* Seller Info */}
-            <div className="flex items-center gap-3 min-w-0 flex-1">
-              <div className="size-11 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold overflow-hidden shrink-0">
+            <div className="flex items-center gap-4 min-w-0 flex-1">
+              <div className="size-14 rounded-full bg-gradient-to-br from-gray-800 to-black border border-white/20 flex items-center justify-center text-white font-bold overflow-hidden shrink-0 shadow-inner">
                 {listing.seller_avatar ? (
                   <img src={listing.seller_avatar} alt="" className="size-full object-cover" />
                 ) : (
-                  listing.seller_name?.[0] || '?'
+                  <span className="text-xl text-[#d4af37]">{listing.seller_name?.[0] || '?'}</span>
                 )}
               </div>
               <div className="min-w-0">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2 mb-1">
                   <Link
                     href={`/seller/${listing.seller_id}`}
-                    className="font-bold text-surface-900 hover:text-blue-500 transition-colors truncate"
+                    className="font-bold text-lg text-white hover:text-[#d4af37] transition-colors truncate"
                   >
                     {listing.seller_name || 'מוכר'}
                   </Link>
                   {listing.seller_verified && (
-                    <BadgeCheck className="size-4 text-blue-500 shrink-0" />
+                    <BadgeCheck className="size-5 text-[#d4af37] shrink-0 drop-shadow-md" />
                   )}
                 </div>
-                <StarRating rating={listing.seller_rating || 0} size="xs" showValue />
+                <StarRating rating={listing.seller_rating || 0} size="sm" showValue />
               </div>
             </div>
 
-            {/* Condition */}
-            <span className={cn(
-              'px-2.5 py-1 rounded-lg text-xs font-medium border shrink-0',
-              CONDITION_COLORS[listing.condition] || CONDITION_COLORS.used
-            )}>
-              {CONDITION_LABELS[listing.condition] || listing.condition}
-            </span>
-
-            {/* Fill Level */}
-            {listing.fill_level && listing.fill_level < 100 && (
-              <div className="flex items-center gap-2 shrink-0">
-                <div className="w-16 h-2 bg-surface-200 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-blue-400 rounded-full transition-all"
-                    style={{ width: `${listing.fill_level}%` }}
-                  />
-                </div>
-                <span className="text-xs text-surface-500">{listing.fill_level}%</span>
-              </div>
-            )}
-
-            {/* Seller Photo */}
-            {listing.seller_photo_url && (
-              <button
-                onClick={() => setSelectedPhoto(listing.seller_photo_url)}
-                className="flex items-center gap-1 text-xs text-surface-500 hover:text-blue-500 transition-colors shrink-0"
-              >
-                <ImageIcon className="size-3.5" />
-                תמונה
-              </button>
-            )}
-
-            {/* Price */}
-            <div className="text-left shrink-0">
+            {/* Listing Details */}
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 w-full sm:w-auto">
+              {/* Condition */}
               <span className={cn(
-                'text-xl font-bold price-ltr',
-                i === 0 ? 'text-emerald-600' : 'text-surface-900'
+                'px-3 py-1.5 rounded-xl text-xs font-bold border shrink-0 tracking-wide',
+                CONDITION_COLORS[listing.condition] || CONDITION_COLORS.used
               )}>
-                {formatPrice(listing.price)}
+                {CONDITION_LABELS[listing.condition] || listing.condition}
               </span>
-              {listing.bottle_size_ml && (
-                <span className="block text-xs text-surface-500">{listing.bottle_size_ml} מ"ל</span>
+
+              {/* Fill Level */}
+              {listing.fill_level && listing.fill_level < 100 && (
+                <div className="flex items-center gap-3 shrink-0 bg-black/40 px-3 py-1.5 rounded-xl border border-white/10">
+                  <div className="w-16 h-1.5 bg-white/20 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-[#d4af37] to-[#ffdf73] rounded-full transition-all"
+                      style={{ width: `${listing.fill_level}%` }}
+                    />
+                  </div>
+                  <span className="text-xs font-bold text-white/80">{listing.fill_level}%</span>
+                </div>
+              )}
+
+              {/* Seller Photo */}
+              {listing.seller_photo_url && (
+                <button
+                  onClick={() => setSelectedPhoto(listing.seller_photo_url)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-black/40 border border-white/10 rounded-xl text-xs font-bold text-white/70 hover:text-white hover:border-white/30 transition-all shrink-0"
+                >
+                  <ImageIcon className="size-4" />
+                  תמונה
+                </button>
               )}
             </div>
 
-            {/* Contact Button */}
-            <Link
-              href={`/seller/${listing.seller_id}`}
-              className={cn(
-                'inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors shrink-0',
-                i === 0
-                  ? 'bg-[#1a1a1a] text-white hover:bg-[#333]'
-                  : 'bg-surface-100 text-surface-700 hover:bg-surface-200'
-              )}
-            >
-              <MessageCircle className="size-4" />
-              צור קשר
-            </Link>
+            {/* Price & Action */}
+            <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto border-t sm:border-t-0 border-white/10 pt-4 sm:pt-0 mt-2 sm:mt-0">
+              <div className="text-right shrink-0">
+                <span className={cn(
+                  'text-2xl font-extrabold block direction-ltr',
+                  i === 0 ? 'text-[#d4af37]' : 'text-white'
+                )}>
+                  {formatPrice(listing.price)}
+                </span>
+                {listing.bottle_size_ml && (
+                  <span className="block text-xs font-medium text-white/50">{listing.bottle_size_ml} מ"ל</span>
+                )}
+              </div>
+
+              <Link
+                href={`/seller/${listing.seller_id}`}
+                className={cn(
+                  'inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all shrink-0 shadow-lg',
+                  i === 0
+                    ? 'bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.4)]'
+                    : 'bg-white text-black hover:bg-white/90 hover:scale-105'
+                )}
+              >
+                <MessageCircle className="size-5" />
+                <span className="hidden xs:inline">צור קשר</span>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
@@ -188,17 +198,24 @@ export default function SellerListingsClient({ listings = [] }) {
       {/* Photo Modal */}
       {selectedPhoto && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
           onClick={() => setSelectedPhoto(null)}
         >
-          <div className="relative max-w-lg w-full max-h-[80vh] rounded-2xl overflow-hidden bg-white animate-scale-in">
-            <Image
-              src={selectedPhoto}
-              alt="תמונת המוכר"
-              width={600}
-              height={600}
-              className="w-full h-auto object-contain"
-            />
+          <div className="relative max-w-2xl w-full rounded-[2rem] overflow-hidden bg-[#1a1a1a] border border-white/10 shadow-2xl animate-scale-in">
+            <button 
+              className="absolute top-4 right-4 z-10 size-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/80 backdrop-blur-md transition-colors"
+              onClick={() => setSelectedPhoto(null)}
+            >
+              ✕
+            </button>
+            <div className="aspect-square relative flex items-center justify-center p-4">
+              <Image
+                src={selectedPhoto}
+                alt="תמונת המוכר"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       )}

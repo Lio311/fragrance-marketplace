@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Search, SlidersHorizontal, ChevronDown } from 'lucide-react';
+import { Search, SlidersHorizontal, ChevronDown, Sparkles } from 'lucide-react';
 import ProductCard from '@/app/components/ProductCard';
 import { cn } from '@/app/lib/utils';
 import { useDebounce } from '@/app/hooks/useDebounce';
@@ -227,7 +227,9 @@ function CatalogContent() {
           </div>
         ) : (
           <div className="text-center py-32 bg-white/5 border border-white/10 rounded-3xl mt-8">
-            <div className="text-6xl mb-6 opacity-80">✨</div>
+            <div className="flex justify-center mb-6 opacity-80 text-[#d4af37]">
+              <Sparkles className="size-16" />
+            </div>
             <h3 className="text-2xl font-bold text-white mb-3">לא נמצאו בשמים</h3>
             <p className="text-white/50 mb-8 max-w-md mx-auto">לא מצאנו תוצאות שתואמות לחיפוש שלך. נסה לשנות את הסינון כדי לראות עוד אפשרויות.</p>
             <button

@@ -2,15 +2,15 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Upload, Package, DollarSign, Info } from 'lucide-react';
+import { Upload, Package, DollarSign, Info, Sparkles, PackageOpen, Droplet, TestTube } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { cn } from '@/app/lib/utils';
 
 const CONDITIONS = [
-  { value: 'new_sealed', label: 'חדש אטום', emoji: '✨' },
-  { value: 'new_opened', label: 'חדש פתוח', emoji: '📦' },
-  { value: 'used', label: 'משומש', emoji: '🧴' },
-  { value: 'tester', label: 'טסטר', emoji: '🧪' },
+  { value: 'new_sealed', label: 'חדש אטום', icon: Sparkles },
+  { value: 'new_opened', label: 'חדש פתוח', icon: PackageOpen },
+  { value: 'used', label: 'משומש', icon: Droplet },
+  { value: 'tester', label: 'טסטר', icon: TestTube },
 ];
 
 export default function NewListingPage() {
@@ -110,13 +110,13 @@ export default function NewListingPage() {
                 type="button"
                 onClick={() => setForm({ ...form, condition: c.value })}
                 className={cn(
-                  'p-3 rounded-xl border text-sm font-medium text-center transition-all',
+                  'p-3 rounded-xl border text-sm font-medium text-center transition-all flex flex-col items-center justify-center gap-2',
                   form.condition === c.value
                     ? 'border-blue-400 bg-blue-50 text-blue-700'
                     : 'border-surface-200 bg-white text-surface-600 hover:bg-surface-50'
                 )}
               >
-                <div className="text-xl mb-1">{c.emoji}</div>
+                <c.icon className="size-5" />
                 {c.label}
               </button>
             ))}

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpDown, MessageCircle, BadgeCheck, ImageIcon } from 'lucide-react';
+import { ArrowUpDown, MessageCircle, BadgeCheck, ImageIcon, PackageOpen } from 'lucide-react';
 import StarRating from '@/app/components/StarRating';
 import { cn, formatPrice } from '@/app/lib/utils';
 
@@ -42,7 +42,9 @@ export default function SellerListingsClient({ listings = [] }) {
   if (sorted.length === 0) {
     return (
       <div className="text-center py-20 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
-        <div className="text-6xl mb-6 opacity-80">📦</div>
+        <div className="flex justify-center mb-6 opacity-80 text-white">
+          <PackageOpen className="size-16" />
+        </div>
         <h3 className="text-2xl font-bold text-white mb-3">אין מוכרים כרגע</h3>
         <p className="text-white/50 mb-8 max-w-md mx-auto">היו הראשונים להציע את הבושם הזה למכירה בשוק הבשמים.</p>
         <Link

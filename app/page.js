@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Search, ShieldCheck, Star, Users, ArrowLeft, TrendingUp, Sparkles, ChevronRight } from 'lucide-react';
+import { Search, ShieldCheck, Star, Users, ArrowLeft, TrendingUp, Sparkles, ChevronRight, SearchX } from 'lucide-react';
 import Image from 'next/image';
 import ProductCard from '@/app/components/ProductCard';
 import { sql } from '@/app/lib/db';
@@ -54,8 +54,8 @@ export default async function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mt-16 animate-fade-in-up">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-[#d4af37]/30 text-[#ffdf73] text-sm font-medium tracking-wide">
-            ✨ הדרך החכמה לגלות את הריח שלך
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-[#d4af37]/30 text-[#ffdf73] text-sm font-medium tracking-wide">
+            <Sparkles className="size-4" /> הדרך החכמה לגלות את הריח שלך
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] leading-[1.2] tracking-tight mb-6 drop-shadow-2xl">
             להריח יוקרה.<br />בלי להתחייב.
@@ -156,7 +156,9 @@ export default async function HomePage() {
             ))}
             {popularFragrances.length === 0 && (
               <div className="col-span-full text-center py-20 bg-white/5 rounded-3xl border border-white/10">
-                <span className="text-4xl opacity-50 block mb-4">✨</span>
+                <div className="flex justify-center mb-4 opacity-50 text-[#d4af37]">
+                  <SearchX className="size-10" />
+                </div>
                 <span className="text-white/60">אין מוצרים להצגה כרגע.</span>
               </div>
             )}

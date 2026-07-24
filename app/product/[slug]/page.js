@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, BadgeCheck } from 'lucide-react';
+import { ArrowRight, BadgeCheck, Droplet } from 'lucide-react';
 import { formatPrice } from '@/app/lib/utils';
 import SellerListingsClient from './SellerListingsClient';
 
@@ -71,9 +71,11 @@ export default async function ProductPage({ params }) {
                 priority
               />
             ) : (
-              <div className="text-center opacity-30">
-                <div className="text-8xl mb-6">🧴</div>
-                <p className="text-lg text-white font-medium tracking-wide">תמונה רשמית תתווסף בקרוב</p>
+              <div className="text-center opacity-30 text-white">
+                <div className="flex justify-center mb-6">
+                  <Droplet className="size-24" />
+                </div>
+                <p className="text-lg font-medium tracking-wide">תמונה רשמית תתווסף בקרוב</p>
               </div>
             )}
             

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Users, TrendingDown } from 'lucide-react';
+import { Users, TrendingDown, Droplet } from 'lucide-react';
 import StarRating from './StarRating';
 import { formatPrice } from '@/app/lib/utils';
 
@@ -30,8 +30,8 @@ export default function ProductCard({ fragrance }) {
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
         ) : (
-          <div className="flex items-center justify-center h-full text-white/20 text-5xl">
-            🧴
+          <div className="flex items-center justify-center h-full text-white/20">
+            <Droplet className="size-12" />
           </div>
         )}
 

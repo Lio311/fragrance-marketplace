@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Search, SlidersHorizontal, X, ChevronDown } from 'lucide-react';
 import ProductCard from '@/app/components/ProductCard';
@@ -21,7 +21,7 @@ const SORT_OPTIONS = [
   { value: 'sellers', label: 'הכי הרבה מוכרים' },
 ];
 
-export default function CatalogPage() {
+function CatalogContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
   
@@ -236,5 +236,17 @@ export default function CatalogPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function CatalogPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <div className="text-center py-20">טוען קטלוג...</div>
+      </div>
+    }>
+      <CatalogContent />
+    </Suspense>
   );
 }

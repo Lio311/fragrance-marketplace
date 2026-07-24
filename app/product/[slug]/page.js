@@ -52,9 +52,9 @@ export default async function ProductPage({ params }) {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-surface-500 mb-6">
-        <Link href="/" className="hover:text-gold-500 transition-colors">דף הבית</Link>
+        <Link href="/" className="hover:text-blue-500 transition-colors">דף הבית</Link>
         <ArrowRight className="size-3 flip-rtl" />
-        <Link href="/catalog" className="hover:text-gold-500 transition-colors">קטלוג</Link>
+        <Link href="/catalog" className="hover:text-blue-500 transition-colors">קטלוג</Link>
         <ArrowRight className="size-3 flip-rtl" />
         <span className="text-surface-900 font-medium">{fragrance.name_he}</span>
       </nav>
@@ -84,7 +84,7 @@ export default async function ProductPage({ params }) {
         {/* Details */}
         <div>
           <div className="mb-1">
-            <span className="text-sm text-gold-500 font-medium">{fragrance.brand_he}</span>
+            <span className="text-sm text-blue-500 font-medium">{fragrance.brand_he}</span>
           </div>
           <h1 className="text-3xl font-bold text-surface-900 mb-4">{fragrance.name_he}</h1>
           
@@ -121,7 +121,7 @@ export default async function ProductPage({ params }) {
               <div className="flex flex-col gap-3">
                 {fragrance.top_notes?.length > 0 && (
                   <div>
-                    <span className="text-xs font-medium text-gold-500">תווים עליונים</span>
+                    <span className="text-xs font-medium text-blue-500">תווים עליונים</span>
                     <div className="flex flex-wrap gap-1.5 mt-1">
                       {fragrance.top_notes.map((note, i) => (
                         <span key={i} className="px-2.5 py-0.5 bg-white border border-surface-200 rounded-full text-xs text-surface-600">
@@ -133,7 +133,7 @@ export default async function ProductPage({ params }) {
                 )}
                 {fragrance.heart_notes?.length > 0 && (
                   <div>
-                    <span className="text-xs font-medium text-gold-500">תווי לב</span>
+                    <span className="text-xs font-medium text-blue-500">תווי לב</span>
                     <div className="flex flex-wrap gap-1.5 mt-1">
                       {fragrance.heart_notes.map((note, i) => (
                         <span key={i} className="px-2.5 py-0.5 bg-white border border-surface-200 rounded-full text-xs text-surface-600">
@@ -145,7 +145,7 @@ export default async function ProductPage({ params }) {
                 )}
                 {fragrance.base_notes?.length > 0 && (
                   <div>
-                    <span className="text-xs font-medium text-gold-500">תווי בסיס</span>
+                    <span className="text-xs font-medium text-blue-500">תווי בסיס</span>
                     <div className="flex flex-wrap gap-1.5 mt-1">
                       {fragrance.base_notes.map((note, i) => (
                         <span key={i} className="px-2.5 py-0.5 bg-white border border-surface-200 rounded-full text-xs text-surface-600">

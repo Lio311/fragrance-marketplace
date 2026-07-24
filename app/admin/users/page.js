@@ -74,13 +74,13 @@ export default function AdminUsersPage() {
             placeholder="חיפוש משתמש (שם, אימייל, ID)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pr-10 pl-4 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+            className="w-full pr-10 pl-4 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
           />
         </div>
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="px-4 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+          className="px-4 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
         >
           <option value="all">כל המשתמשים</option>
           <option value="pending_sellers">ממתינים לאישור מוכר</option>
@@ -131,7 +131,7 @@ export default function AdminUsersPage() {
                       <span className={cn(
                         "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border",
                         user.role === 'admin' ? 'bg-purple-50 text-purple-700 border-purple-200' :
-                        user.role === 'seller' ? 'bg-gold-50 text-gold-700 border-gold-200' :
+                        user.role === 'seller' ? 'bg-blue-50 text-blue-700 border-blue-200' :
                         'bg-surface-100 text-surface-600 border-surface-200'
                       )}>
                         {user.role === 'admin' ? <ShieldAlert className="size-3" /> :
@@ -142,7 +142,7 @@ export default function AdminUsersPage() {
                     </td>
                     <td className="px-6 py-4">
                       {user.seller_status === 'pending' ? (
-                        <span className="text-amber-600 font-medium text-xs">ממתין לאישור</span>
+                        <span className="text-slate-600 font-medium text-xs">ממתין לאישור</span>
                       ) : user.seller_status === 'approved' ? (
                         <span className="text-emerald-600 font-medium text-xs">מאושר</span>
                       ) : user.seller_status === 'rejected' ? (

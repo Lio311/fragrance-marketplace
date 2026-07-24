@@ -40,7 +40,7 @@ export default async function SellerProfilePage({ params }) {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-surface-500 mb-6">
-        <Link href="/" className="hover:text-gold-500 transition-colors">דף הבית</Link>
+        <Link href="/" className="hover:text-blue-500 transition-colors">דף הבית</Link>
         <ArrowRight className="size-3 flip-rtl" />
         <span className="text-surface-900 font-medium">פרופיל מוכר</span>
       </nav>
@@ -48,7 +48,7 @@ export default async function SellerProfilePage({ params }) {
       {/* Seller Header */}
       <div className="bg-white border border-surface-200 rounded-2xl p-8 mb-8">
         <div className="flex items-center gap-4">
-          <div className="size-16 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-white text-2xl font-bold">
+          <div className="size-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-2xl font-bold">
             ?
           </div>
           <div>

@@ -12,12 +12,12 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-surface-50 to-white py-20 sm:py-28">
         {/* Decorative Elements */}
-        <div className="absolute top-20 right-10 size-72 bg-gold-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 size-96 bg-gold-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 size-72 bg-blue-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 size-96 bg-blue-100/20 rounded-full blur-3xl" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-gold-50 border border-gold-200 rounded-full text-sm text-gold-700 font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 border border-blue-200 rounded-full text-sm text-blue-700 font-medium mb-6">
               <Sparkles className="size-4" />
               השוק המוביל לבשמים בישראל
             </div>
@@ -25,7 +25,7 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-surface-900 leading-tight mb-6">
               מצא את הבושם המושלם
               <br />
-              <span className="text-gradient-gold">במחיר הטוב ביותר</span>
+              <span className="text-gradient-blue">במחיר הטוב ביותר</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-surface-500 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -41,7 +41,7 @@ export default function HomePage() {
                   type="text"
                   name="q"
                   placeholder="חפש בושם, מותג, תווי ריח..."
-                  className="w-full pr-12 pl-32 py-4 bg-white border-2 border-surface-200 rounded-2xl text-base placeholder:text-surface-400 focus:outline-none focus:ring-4 focus:ring-gold-400/20 focus:border-gold-400 shadow-lg transition-all"
+                  className="w-full pr-12 pl-32 py-4 bg-white border-2 border-surface-200 rounded-2xl text-base placeholder:text-surface-400 focus:outline-none focus:ring-4 focus:ring-blue-400/20 focus:border-blue-400 shadow-lg transition-all"
                 />
                 <button
                   type="submit"
@@ -94,13 +94,13 @@ export default function HomePage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="relative p-8 rounded-2xl border border-surface-200 hover:border-gold-300 hover:shadow-card-hover transition-all duration-300 group"
+                className="relative p-8 rounded-2xl border border-surface-200 hover:border-blue-300 hover:shadow-card-hover transition-all duration-300 group"
               >
-                <div className="absolute -top-3 right-6 px-3 py-0.5 bg-gold-400 text-white text-xs font-bold rounded-full">
+                <div className="absolute -top-3 right-6 px-3 py-0.5 bg-blue-400 text-white text-xs font-bold rounded-full">
                   {item.step}
                 </div>
-                <div className="size-14 rounded-xl bg-surface-50 flex items-center justify-center mb-5 group-hover:bg-gold-50 transition-colors">
-                  <item.icon className="size-7 text-surface-600 group-hover:text-gold-500 transition-colors" />
+                <div className="size-14 rounded-xl bg-surface-50 flex items-center justify-center mb-5 group-hover:bg-blue-50 transition-colors">
+                  <item.icon className="size-7 text-surface-600 group-hover:text-blue-500 transition-colors" />
                 </div>
                 <h3 className="text-xl font-bold text-surface-900 mb-2">{item.title}</h3>
                 <p className="text-surface-500 leading-relaxed">{item.description}</p>
@@ -125,8 +125,8 @@ export default function HomePage() {
               { icon: Sparkles, label: 'שימוש חינמי', value: 'ללא עמלות' },
             ].map((item, i) => (
               <div key={i} className="text-center p-6 rounded-2xl bg-white border border-surface-200">
-                <div className="size-12 rounded-xl bg-gold-50 flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="size-6 text-gold-500" />
+                <div className="size-12 rounded-xl bg-blue-50 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="size-6 text-blue-500" />
                 </div>
                 <h3 className="font-bold text-surface-900 mb-1">{item.label}</h3>
                 <p className="text-sm text-surface-500">{item.value}</p>

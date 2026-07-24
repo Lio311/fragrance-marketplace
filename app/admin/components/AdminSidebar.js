@@ -25,7 +25,7 @@ export default function AdminSidebar() {
       {/* Logo */}
       <div className="p-6 border-b border-white/10">
         <Link href="/admin" className="flex items-center gap-2">
-          <div className="size-8 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
+          <div className="size-8 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
             <Sparkles className="size-4 text-white" />
           </div>
           <span className="font-bold text-sm">פאנל ניהול</span>

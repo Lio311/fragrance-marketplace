@@ -82,9 +82,9 @@ export default function Header() {
             <div className="relative size-10">
               <Image src="/FM.png" alt="Fragrance Marketplace" fill className="object-contain" priority />
             </div>
-            <span className="text-lg font-bold text-surface-900 group-hover:text-gold-500 transition-colors hidden sm:block">
+            <span className="text-lg font-bold text-surface-900 group-hover:text-blue-500 transition-colors hidden sm:block">
               Fragrance
-              <span className="text-gold-500"> Marketplace</span>
+              <span className="text-blue-500"> Marketplace</span>
             </span>
           </Link>
 
@@ -123,7 +123,7 @@ export default function Header() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
-                className="w-full pr-10 pl-4 py-2 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400 transition-all"
+                className="w-full pr-10 pl-4 py-2 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all"
               />
             </div>
           </form>
@@ -151,7 +151,7 @@ export default function Header() {
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-surface-50 transition-colors"
                 >
-                  <div className="size-8 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-white text-sm font-bold overflow-hidden">
+                  <div className="size-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-sm font-bold overflow-hidden">
                     {user?.imageUrl ? (
                       <img
                         src={user.imageUrl}
@@ -246,7 +246,7 @@ export default function Header() {
                   placeholder="חיפוש בשמים..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pr-10 pl-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400"
+                  className="w-full pr-10 pl-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
                 />
               </div>
             </form>

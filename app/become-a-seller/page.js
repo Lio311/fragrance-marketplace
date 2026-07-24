@@ -83,8 +83,8 @@ export default function BecomeSellerPage() {
       <div className="max-w-xl mx-auto px-4 sm:px-6">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-surface-200">
           <div className="text-center mb-8">
-            <div className="size-14 rounded-full bg-gold-100 flex items-center justify-center mx-auto mb-4">
-              <ShieldCheck className="size-7 text-gold-600" />
+            <div className="size-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+              <ShieldCheck className="size-7 text-blue-600" />
             </div>
             <h1 className="text-3xl font-bold text-surface-900 mb-2">הרשמה כמוכר</h1>
             <p className="text-surface-500">
@@ -97,7 +97,7 @@ export default function BecomeSellerPage() {
               <label className="block text-sm font-medium text-surface-900 mb-2">
                 צילום תעודת זהות
               </label>
-              <div className="border-2 border-dashed border-surface-200 rounded-xl p-8 text-center hover:border-gold-400 transition-colors bg-surface-50 cursor-pointer relative overflow-hidden">
+              <div className="border-2 border-dashed border-surface-200 rounded-xl p-8 text-center hover:border-blue-400 transition-colors bg-surface-50 cursor-pointer relative overflow-hidden">
                 <input
                   type="file"
                   accept="image/*"
@@ -107,7 +107,7 @@ export default function BecomeSellerPage() {
                 {idImage ? (
                   <div className="flex flex-col items-center">
                     <img src={idImage} alt="ID Preview" className="h-32 object-contain mb-3 rounded-lg shadow-sm" />
-                    <span className="text-sm font-medium text-gold-600">החלף תמונה</span>
+                    <span className="text-sm font-medium text-blue-600">החלף תמונה</span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center text-surface-500">

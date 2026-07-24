@@ -18,7 +18,7 @@ const CONDITION_COLORS = {
   new_sealed: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   new_opened: 'bg-blue-50 text-blue-700 border-blue-200',
   used: 'bg-surface-50 text-surface-600 border-surface-200',
-  tester: 'bg-amber-50 text-amber-700 border-amber-200',
+  tester: 'bg-slate-50 text-slate-700 border-slate-200',
 };
 
 export default function SellerListingsClient({ listings = [] }) {
@@ -72,7 +72,7 @@ export default function SellerListingsClient({ listings = [] }) {
             className={cn(
               'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
               sortBy === opt.value
-                ? 'bg-gold-50 text-gold-700 border border-gold-300'
+                ? 'bg-blue-50 text-blue-700 border border-blue-300'
                 : 'bg-surface-50 text-surface-600 border border-surface-200 hover:bg-surface-100'
             )}
           >
@@ -88,19 +88,19 @@ export default function SellerListingsClient({ listings = [] }) {
             key={listing.id || i}
             className={cn(
               'flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-2xl border transition-all hover:shadow-card-hover',
-              i === 0 ? 'border-gold-300 bg-gold-50/30' : 'border-surface-200 bg-white'
+              i === 0 ? 'border-blue-300 bg-blue-50/30' : 'border-surface-200 bg-white'
             )}
           >
             {/* Rank Badge */}
             {i === 0 && (
-              <div className="hidden sm:flex items-center justify-center size-8 rounded-full bg-gold-400 text-white text-xs font-bold shrink-0">
+              <div className="hidden sm:flex items-center justify-center size-8 rounded-full bg-blue-400 text-white text-xs font-bold shrink-0">
                 1
               </div>
             )}
 
             {/* Seller Info */}
             <div className="flex items-center gap-3 min-w-0 flex-1">
-              <div className="size-11 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-white font-bold overflow-hidden shrink-0">
+              <div className="size-11 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold overflow-hidden shrink-0">
                 {listing.seller_avatar ? (
                   <img src={listing.seller_avatar} alt="" className="size-full object-cover" />
                 ) : (
@@ -111,7 +111,7 @@ export default function SellerListingsClient({ listings = [] }) {
                 <div className="flex items-center gap-1.5">
                   <Link
                     href={`/seller/${listing.seller_id}`}
-                    className="font-bold text-surface-900 hover:text-gold-500 transition-colors truncate"
+                    className="font-bold text-surface-900 hover:text-blue-500 transition-colors truncate"
                   >
                     {listing.seller_name || 'מוכר'}
                   </Link>
@@ -136,7 +136,7 @@ export default function SellerListingsClient({ listings = [] }) {
               <div className="flex items-center gap-2 shrink-0">
                 <div className="w-16 h-2 bg-surface-200 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gold-400 rounded-full transition-all"
+                    className="h-full bg-blue-400 rounded-full transition-all"
                     style={{ width: `${listing.fill_level}%` }}
                   />
                 </div>
@@ -148,7 +148,7 @@ export default function SellerListingsClient({ listings = [] }) {
             {listing.seller_photo_url && (
               <button
                 onClick={() => setSelectedPhoto(listing.seller_photo_url)}
-                className="flex items-center gap-1 text-xs text-surface-500 hover:text-gold-500 transition-colors shrink-0"
+                className="flex items-center gap-1 text-xs text-surface-500 hover:text-blue-500 transition-colors shrink-0"
               >
                 <ImageIcon className="size-3.5" />
                 תמונה

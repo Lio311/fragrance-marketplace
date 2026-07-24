@@ -56,7 +56,7 @@ export default function TermsPage() {
         {sections.map((section) => (
           <section key={section.id} id={section.id}>
             <h2 className="text-xl font-bold text-surface-900 mb-3 flex items-center gap-2">
-              <div className="size-1.5 rounded-full bg-gold-400" />
+              <div className="size-1.5 rounded-full bg-blue-400" />
               {section.title}
             </h2>
             <div className="text-surface-600 leading-relaxed whitespace-pre-line">

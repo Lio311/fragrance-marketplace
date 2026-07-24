@@ -92,7 +92,7 @@ export default function CatalogPage() {
             placeholder="חיפוש בשמים, מותגים..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pr-10 pl-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400 transition-all"
+            className="w-full pr-10 pl-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm placeholder:text-surface-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all"
           />
         </div>
 
@@ -101,7 +101,7 @@ export default function CatalogPage() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="appearance-none w-full sm:w-auto px-4 py-3 pr-10 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400 transition-all cursor-pointer"
+            className="appearance-none w-full sm:w-auto px-4 py-3 pr-10 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 transition-all cursor-pointer"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -118,14 +118,14 @@ export default function CatalogPage() {
           className={cn(
             'inline-flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium border transition-colors',
             showFilters || activeFilterCount > 0
-              ? 'bg-gold-50 border-gold-300 text-gold-700'
+              ? 'bg-blue-50 border-blue-300 text-blue-700'
               : 'bg-surface-50 border-surface-200 text-surface-600 hover:bg-surface-100'
           )}
         >
           <SlidersHorizontal className="size-4" />
           סינון
           {activeFilterCount > 0 && (
-            <span className="size-5 rounded-full bg-gold-400 text-white text-xs flex items-center justify-center">
+            <span className="size-5 rounded-full bg-blue-400 text-white text-xs flex items-center justify-center">
               {activeFilterCount}
             </span>
           )}
@@ -137,7 +137,7 @@ export default function CatalogPage() {
         <div className="bg-surface-50 border border-surface-200 rounded-2xl p-6 mb-6 animate-scale-in">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-surface-900">סינון מתקדם</h3>
-            <button onClick={clearFilters} className="text-sm text-gold-500 hover:text-gold-600">
+            <button onClick={clearFilters} className="text-sm text-blue-500 hover:text-blue-600">
               נקה הכל
             </button>
           </div>
@@ -149,7 +149,7 @@ export default function CatalogPage() {
               <select
                 value={filters.gender}
                 onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
               >
                 <option value="">הכל</option>
                 {GENDERS.map((g) => (
@@ -164,7 +164,7 @@ export default function CatalogPage() {
               <select
                 value={filters.concentration}
                 onChange={(e) => setFilters({ ...filters, concentration: e.target.value })}
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
               >
                 <option value="">הכל</option>
                 {CONCENTRATIONS.map((c) => (
@@ -181,7 +181,7 @@ export default function CatalogPage() {
                 value={filters.minPrice}
                 onChange={(e) => setFilters({ ...filters, minPrice: e.target.value })}
                 placeholder="0"
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
                 dir="ltr"
               />
             </div>
@@ -194,7 +194,7 @@ export default function CatalogPage() {
                 value={filters.maxPrice}
                 onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })}
                 placeholder="5000"
-                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                className="w-full px-3 py-2.5 bg-white border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30"
                 dir="ltr"
               />
             </div>

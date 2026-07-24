@@ -67,7 +67,7 @@ export default function NewListingPage() {
             value={form.fragranceName}
             onChange={(e) => setForm({ ...form, fragranceName: e.target.value })}
             placeholder="לדוגמה: Bleu de Chanel"
-            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400"
+            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
             required
           />
         </div>
@@ -80,7 +80,7 @@ export default function NewListingPage() {
             value={form.brandName}
             onChange={(e) => setForm({ ...form, brandName: e.target.value })}
             placeholder="לדוגמה: Chanel"
-            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400"
+            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
             required
           />
         </div>
@@ -94,7 +94,7 @@ export default function NewListingPage() {
             onChange={(e) => setForm({ ...form, price: e.target.value })}
             placeholder="0"
             min="1"
-            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400"
+            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
             dir="ltr"
             required
           />
@@ -112,7 +112,7 @@ export default function NewListingPage() {
                 className={cn(
                   'p-3 rounded-xl border text-sm font-medium text-center transition-all',
                   form.condition === c.value
-                    ? 'border-gold-400 bg-gold-50 text-gold-700'
+                    ? 'border-blue-400 bg-blue-50 text-blue-700'
                     : 'border-surface-200 bg-white text-surface-600 hover:bg-surface-50'
                 )}
               >
@@ -135,7 +135,7 @@ export default function NewListingPage() {
             step="5"
             value={form.fillLevel}
             onChange={(e) => setForm({ ...form, fillLevel: parseInt(e.target.value) })}
-            className="w-full accent-gold-400"
+            className="w-full accent-blue-400"
           />
           <div className="flex justify-between text-xs text-surface-400 mt-1">
             <span>5%</span>
@@ -151,7 +151,7 @@ export default function NewListingPage() {
             value={form.bottleSize}
             onChange={(e) => setForm({ ...form, bottleSize: e.target.value })}
             placeholder="100"
-            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400"
+            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
             dir="ltr"
           />
         </div>
@@ -164,7 +164,7 @@ export default function NewListingPage() {
             onChange={(e) => setForm({ ...form, description: e.target.value })}
             placeholder="ספר על הבושם, מתי נקנה, שימוש..."
             rows={3}
-            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-400/30 focus:border-gold-400 resize-none"
+            className="w-full px-4 py-3 bg-surface-50 border border-surface-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none"
           />
         </div>
 

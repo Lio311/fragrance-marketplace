@@ -23,7 +23,7 @@ export default function StarRating({ rating = 0, maxStars = 5, size = 'sm', show
               className={cn(
                 sizes[size],
                 'transition-colors',
-                filled ? 'text-amber-400 fill-amber-400' : halfFilled ? 'text-amber-400 fill-amber-200' : 'text-surface-300'
+                filled ? 'text-slate-400 fill-slate-400' : halfFilled ? 'text-slate-400 fill-slate-200' : 'text-surface-300'
               )}
             />
           );

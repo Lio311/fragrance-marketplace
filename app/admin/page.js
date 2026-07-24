@@ -12,7 +12,7 @@ export default function AdminDashboard() {
           { icon: Users, label: 'סה"כ משתמשים', value: '0', change: '+0', color: 'text-blue-500 bg-blue-50' },
           { icon: Package, label: 'מודעות פעילות', value: '0', change: '+0', color: 'text-purple-500 bg-purple-50' },
           { icon: ArrowLeftRight, label: 'עסקאות שהושלמו', value: '0', change: '+0', color: 'text-emerald-500 bg-emerald-50' },
-          { icon: AlertTriangle, label: 'סכסוכים פתוחים', value: '0', change: '0', color: 'text-amber-500 bg-amber-50' },
+          { icon: AlertTriangle, label: 'סכסוכים פתוחים', value: '0', change: '0', color: 'text-slate-500 bg-slate-50' },
         ].map((stat, i) => (
           <div key={i} className="bg-white border border-surface-200 rounded-2xl p-5">
             <div className={`size-10 rounded-xl ${stat.color} flex items-center justify-center mb-3`}>

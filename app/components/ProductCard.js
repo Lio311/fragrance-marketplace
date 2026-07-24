@@ -57,8 +57,8 @@ export default function ProductCard({ fragrance }) {
 
       {/* Info */}
       <div className="p-3.5">
-        <p className="text-xs text-gold-500 font-medium mb-0.5">{brand_he}</p>
-        <h3 className="text-sm font-bold text-surface-900 mb-2 line-clamp-2 group-hover:text-gold-600 transition-colors">
+        <p className="text-xs text-blue-500 font-medium mb-0.5">{brand_he}</p>
+        <h3 className="text-sm font-bold text-surface-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
           {name_he}
         </h3>
 
